@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LandingFixService } from '../../shared/services/landing-fix.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-two',
@@ -15,8 +16,13 @@ import { LandingFixService } from '../../shared/services/landing-fix.service';
 })
 export class HomeTwoComponent implements OnInit, OnDestroy {
   constructor(
-    private fix: LandingFixService
-  ) { }
+    private fix: LandingFixService,
+    private translate: TranslateService)
+  { translate.setDefaultLang('en');}
+  
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
 
   ngOnInit() {
     this.fix.addFix();

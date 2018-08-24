@@ -8,13 +8,19 @@
     </div>
     <div fxFlex class="top-menu">
      <!-- <button mat-button id="dashboard-topbtn" class="hometop-btn" [routerLink]="'/home/demos'"><strong>Demos</strong></button>-->
-      <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="portfolio-section"><strong>Works</strong></button>
-      <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="service-section"><strong>Services</strong></button>
+      <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="portfolio-section"><strong translate>Works</strong></button>
+      <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="service-section"><strong translate>Services</strong></button>
       <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="testimonials-section"><strong>Testimonials</strong></button>
       <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="pricings-section"><strong>Pricings</strong></button>
       <button mat-button id="dashboard-topbtn" class="hometop-btn" scrollTo="contact-section"><strong>Contact</strong></button>
       <span fxFlex></span>
-      <button mat-button id="dashboard-topbtn" class="hometop-btn icon-button" (click)="buyEgret()"><mat-icon>person</mat-icon><strong> My Account</strong></button>
+
+
+      <button mat-button id="dashboard-topbtn" (click)="switchLanguage('en')"><strong>en</strong></button>
+      <button mat-button id="dashboard-topbtn" (click)="switchLanguage('fr')"><strong>fr</strong></button>
+   
+    
+      <!--<button mat-button id="dashboard-topbtn" class="hometop-btn icon-button" (click)="buyEgret()"><mat-icon>person</mat-icon><strong> My Account</strong></button>-->
     </div>
   </div>
 </header>

@@ -1,18 +1,26 @@
 import { Component, OnInit, HostListener, HostBinding, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW_PROVIDERS, WINDOW } from '../../../shared/helpers/window.helper';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit {
   isFixed;
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window: Window
-  ) { }
+    @Inject(WINDOW) private window: Window,
+    private translate: TranslateService
+  ) {translate.setDefaultLang('en'); }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);}
+
+  
 
   ngOnInit() {
   }
@@ -37,3 +45,5 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+
+

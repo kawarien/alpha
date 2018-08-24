@@ -40,6 +40,10 @@ import { AllSectionsComponent } from './all-sections.component';
 
 import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 @NgModule({
   imports: [
@@ -59,7 +63,15 @@ import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
     MatSnackBarModule,
     FlexLayoutModule,
     NguCarouselModule,
-    RouterModule.forChild(HomeRoutes)
+    RouterModule.forChild(HomeRoutes),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   declarations: [
     HomeOneComponent,
@@ -84,3 +96,7 @@ import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
 
 })
 export class HomeModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
